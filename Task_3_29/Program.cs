@@ -6,7 +6,7 @@ int[] array = FillArray(arr);
 
 Console.WriteLine("Массив выглядит следующим образом: ");
 
-PrintArray (array);
+PrintArray(array);
 
 
 
@@ -14,13 +14,13 @@ PrintArray (array);
 
 int[] FillArray(int[] arr)
 {
-	Console.WriteLine("Введите числа для формирования массива:");
+    Console.WriteLine("Введите числа для формирования массива:");
 
     for (int i = 0; i < 8; i++)
     {
-		Console.Write($"Введите {i+1}-e числo: ");
-	    int num = int.Parse(Console.ReadLine());
-		arr[i] = num;
+        Console.Write($"Введите {i + 1}-e числo: ");
+        int num = int.Parse(Console.ReadLine());
+        arr[i] = num;
     }
     return arr;
 }
@@ -28,11 +28,11 @@ int[] FillArray(int[] arr)
 
 //Метод печати массива
 
-void PrintArray (int[] array)
+void PrintArray(int[] array)
 {
-	for (int i = 0; i < 8; i++)
-	{
+    for (int i = 0; i < 8; i++)
+    {
         Console.Write($"{array[i]}, ");
-	}
+    }
 }
 
