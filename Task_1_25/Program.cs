@@ -39,10 +39,12 @@ int InputInt()
 
 int RaisingNumberToPower(int numberA, int numberB)
 {
-    for (int result = numberA, count = 1; count < numberB; result = result * numberA, count++)
-    {
-        
-        return result;
-    }
+    int result = numberA;
 
+    for (int count = 1; count < numberB; count++)
+    {
+        result = result * numberA;        
+    }
+    
+    return result;
 }
