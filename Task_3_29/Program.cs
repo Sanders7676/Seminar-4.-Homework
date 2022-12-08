@@ -370,7 +370,7 @@ int InputInt()
 // Метод формирования массива
 
 
-int[] GenerateArray(int arrayLength)
+int[] GenerateArray(int arrayLength, int zeroIndex, int pastIndex)
 {
     Random random = new Random();
 
@@ -384,3 +384,120 @@ int[] GenerateArray(int arrayLength)
 }
 
 
+//____________________
+//____________________
+
+//Задача 38
+//Вариант 3
+
+
+
+int[] arr = new int[];
+
+Console.WriteLine("Наш массив выглядит следующим образом:");
+
+PrintArray(array);
+
+int minimalNumberInArray = GetMinimalNumberInArray (array);
+
+int maximalNumberInArray = GetMaximalNumberInArray (array);
+
+int result = maximalNumberInArray - minimalNumberInArray;
+
+Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {result}.");
+
+
+
+
+
+// Метод формирования массива (другой)
+
+
+int[] GenerateArray(int[] arr)
+{
+    	Console.WriteLine("Введите параметры для формирования массива:");
+
+	Console.Write("Введите количество элементов в массиве: ");
+
+	int arrayLength = InputInt();
+
+	Console.Write("Введите крайний левый элемент массива: ");
+
+	int zeroIndex = InputInt();
+
+	Console.Write("Введите крайний правый элемент массива: ");
+
+	int pastIndex = InputInt();
+
+	if(zeroIndex >= pastIndex || (pastIndex - zeroIndex) < arrayLength)
+	{
+		Console.Write("Массив задан неверно!");
+		break;
+	}
+	
+	Random random = new Random();
+   	
+	for (int i = 0; i < arrayLength; i++)
+    	{
+        	array[i] = random.Next(zeroIndex, pastIndex + 1);
+    	}
+    	return array;
+}
+
+
+
+
+// Метод для приема чисел, вводимых через консоль
+
+int InputInt()
+{
+    bool isNum = int.TryParse(Console.ReadLine(), out int num);
+    if (isNum)
+    {
+        return num;
+    }
+    else
+    {
+        Console.WriteLine("Введено некорректное значение.");
+        return -1;
+    }
+}
+
+
+
+
+//Метод нахождения минимального элемента массива:
+
+int GetMinimalNumberInArray (int[] array)
+{
+    int minNumber = array[0];
+
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] < minNumber)
+        {
+            minNumber = array[i];
+        }
+    }
+
+    return minNumber;
+}
+
+
+
+//Метод нахождения максимального элемента массива:
+
+int GetMaximalNumberInArray (int[] array)
+{
+    int maxNumber = array[0];
+
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] > minNumber)
+        {
+            maxNumber = array[i];
+        }
+    }
+
+    return maxNumber;
+}
